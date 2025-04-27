@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Activity, Brain, Heart, Lungs, Pill, Stethoscope, Thermometer, Virus } from "lucide-react";
+import { Activity, Brain, Heart, Pill, Stethoscope, Thermometer, Virus, Lung } from "lucide-react";
 
 interface DiseaseCardProps {
   title: string;
@@ -157,7 +157,7 @@ const DiseasesSection = () => {
               <DiseaseCard
                 title="COVID-19"
                 description="Инфекционное заболевание, вызываемое коронавирусом SARS-CoV-2."
-                icon={<Lungs className="h-5 w-5" />}
+                icon={<Virus className="h-5 w-5" />}
                 highRiskGroups={["II(A)"]}
                 lowRiskGroups={["I(0)"]}
                 researchLevel="Средний"

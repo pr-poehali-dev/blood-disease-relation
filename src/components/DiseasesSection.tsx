@@ -1,7 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Activity, Brain, Heart, Pill, Stethoscope, Thermometer, Virus, Lung } from "lucide-react";
+import { Activity, Brain, Heart, Pill, Stethoscope, Thermometer } from "lucide-react";
 
 interface DiseaseCardProps {
   title: string;
@@ -149,7 +149,7 @@ const DiseasesSection = () => {
               <DiseaseCard
                 title="Малярия"
                 description="Инфекционное заболевание, вызываемое паразитами рода Plasmodium и передающееся через укусы комаров."
-                icon={<Virus className="h-5 w-5" />}
+                icon={<Thermometer className="h-5 w-5" />}
                 highRiskGroups={["I(0)", "IV(AB) Rh-"]}
                 lowRiskGroups={["II(A)", "III(B)"]}
                 researchLevel="Высокий"
@@ -157,7 +157,7 @@ const DiseasesSection = () => {
               <DiseaseCard
                 title="COVID-19"
                 description="Инфекционное заболевание, вызываемое коронавирусом SARS-CoV-2."
-                icon={<Virus className="h-5 w-5" />}
+                icon={<Pill className="h-5 w-5" />}
                 highRiskGroups={["II(A)"]}
                 lowRiskGroups={["I(0)"]}
                 researchLevel="Средний"
@@ -165,7 +165,7 @@ const DiseasesSection = () => {
               <DiseaseCard
                 title="E. coli инфекции"
                 description="Бактериальные инфекции, вызываемые различными штаммами бактерии Escherichia coli."
-                icon={<Virus className="h-5 w-5" />}
+                icon={<Pill className="h-5 w-5" />}
                 highRiskGroups={["III(B)"]}
                 lowRiskGroups={["I(0)", "II(A)"]}
                 researchLevel="Средний"

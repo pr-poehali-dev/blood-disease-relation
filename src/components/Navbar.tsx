@@ -20,16 +20,16 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="/" className="text-sm font-medium hover:text-primary transition-colors">
               Главная
             </a>
-            <a href="#diseases" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="/#diseases" className="text-sm font-medium hover:text-primary transition-colors">
               Заболевания
             </a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="/#blood-types" className="text-sm font-medium hover:text-primary transition-colors">
               Группы крови
             </a>
-            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="/#research" className="text-sm font-medium hover:text-primary transition-colors">
               Исследования
             </a>
             <Button size="sm">Проверить риски</Button>
@@ -53,28 +53,28 @@ const Navbar = () => {
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col gap-4">
               <a
-                href="#"
+                href="/"
                 className="text-sm font-medium py-2 hover:text-primary transition-colors"
                 onClick={toggleMenu}
               >
                 Главная
               </a>
               <a
-                href="#diseases"
+                href="/#diseases"
                 className="text-sm font-medium py-2 hover:text-primary transition-colors"
                 onClick={toggleMenu}
               >
                 Заболевания
               </a>
               <a
-                href="#"
+                href="/#blood-types"
                 className="text-sm font-medium py-2 hover:text-primary transition-colors"
                 onClick={toggleMenu}
               >
                 Группы крови
               </a>
               <a
-                href="#"
+                href="/#research"
                 className="text-sm font-medium py-2 hover:text-primary transition-colors"
                 onClick={toggleMenu}
               >

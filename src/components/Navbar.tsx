@@ -1,71 +1,91 @@
-import { Link, useLocation } from "react-router-dom";
-import { Heart, Droplets, Info, Home } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Droplets, Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const location = useLocation();
-  
-  const isActive = (path: string) => {
-    return location.pathname === path;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
-  
+
   return (
-    <nav className="bg-primary text-primary-foreground shadow-md">
+    <header className="bg-background border-b sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-2">
-            <Droplets className="h-6 w-6" />
-            <span className="font-bold text-lg">ГемоИнфо</span>
-          </div>
-          
-          <div className="hidden md:flex space-x-4">
-            <NavLink to="/" active={isActive("/")} icon={<Home size={18} />}>
+        <div className="flex justify-between items-center h-16">
+          <a href="/" className="flex items-center gap-2">
+            <Droplets className="h-6 w-6 text-primary" />
+            <span className="font-bold text-lg">ГруппыКрови.рф</span>
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6">
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
               Главная
-            </NavLink>
-            <NavLink to="/blood-types" active={isActive("/blood-types")} icon={<Droplets size={18} />}>
-              Группы крови
-            </NavLink>
-            <NavLink to="/diseases" active={isActive("/diseases")} icon={<Heart size={18} />}>
+            </a>
+            <a href="#diseases" className="text-sm font-medium hover:text-primary transition-colors">
               Заболевания
-            </NavLink>
-            <NavLink to="/about" active={isActive("/about")} icon={<Info size={18} />}>
-              О проекте
-            </NavLink>
-          </div>
-          
-          <div className="md:hidden">
-            <button className="flex items-center px-3 py-2 border rounded text-primary-foreground border-primary-foreground hover:text-accent hover:border-accent">
-              <svg className="h-3 w-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <title>Меню</title>
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-              </svg>
-            </button>
-          </div>
+            </a>
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+              Группы крови
+            </a>
+            <a href="#" className="text-sm font-medium hover:text-primary transition-colors">
+              Исследования
+            </a>
+            <Button size="sm">Проверить риски</Button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-label="Открыть меню"
+          >
+            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
       </div>
-    </nav>
-  );
-};
 
-interface NavLinkProps {
-  to: string;
-  active: boolean;
-  children: React.ReactNode;
-  icon?: React.ReactNode;
-}
-
-const NavLink = ({ to, active, children, icon }: NavLinkProps) => {
-  return (
-    <Link
-      to={to}
-      className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-        active 
-          ? "bg-primary-foreground text-primary" 
-          : "text-primary-foreground hover:bg-primary-foreground/10"
-      }`}
-    >
-      {icon && <span>{icon}</span>}
-      <span>{children}</span>
-    </Link>
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-background border-b">
+          <div className="container mx-auto px-4 py-4">
+            <nav className="flex flex-col gap-4">
+              <a
+                href="#"
+                className="text-sm font-medium py-2 hover:text-primary transition-colors"
+                onClick={toggleMenu}
+              >
+                Главная
+              </a>
+              <a
+                href="#diseases"
+                className="text-sm font-medium py-2 hover:text-primary transition-colors"
+                onClick={toggleMenu}
+              >
+                Заболевания
+              </a>
+              <a
+                href="#"
+                className="text-sm font-medium py-2 hover:text-primary transition-colors"
+                onClick={toggleMenu}
+              >
+                Группы крови
+              </a>
+              <a
+                href="#"
+                className="text-sm font-medium py-2 hover:text-primary transition-colors"
+                onClick={toggleMenu}
+              >
+                Исследования
+              </a>
+              <Button className="mt-2">Проверить риски</Button>
+            </nav>
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 

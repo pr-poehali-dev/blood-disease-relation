@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import InfoSection from "@/components/InfoSection";
 import BloodTypeCard from "@/components/BloodTypeCard";
+import DiseasesSection from "@/components/DiseasesSection";
 import Footer from "@/components/Footer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -77,6 +78,8 @@ const Index = () => {
             </Tabs>
           </div>
         </section>
+        
+        <DiseasesSection />
       </main>
       
       <Footer />
